@@ -7,53 +7,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/top_rounded1"
-    android:orientation="vertical"
-    tools:context="com.example.gio.lessnote.activities.MondayActivity">
+    android:orientation="vertical">
 
     //=========================================================================
 
-    <!--<RelativeLayout-->
-        <!--android:id="@+id/rlMonday"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_marginLeft="@dimen/activity_horizontal_margin"-->
-        <!--android:layout_marginRight="@dimen/rl_margin_right"-->
-        <!--android:layout_weight="1.3"-->
-        <!--android:elevation="1dp">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/ivMonday"-->
-            <!--android:layout_width="@dimen/iv_smile_size"-->
-            <!--android:layout_height="@dimen/iv_smile_size"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginTop="@dimen/iv_smile_margin_top"-->
-            <!--android:background="@drawable/mondaysmile"-->
-            <!--android:elevation="1dp" />-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/tvMonday"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignBaseline="@+id/ivMonday"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:text="ორშაბათი"-->
-            <!--android:textColor="@color/white"-->
-            <!--android:textSize="@dimen/btn_days_text_size" />-->
-
-        <!--<ImageView-->
-            <!--android:layout_width="@dimen/iv_arrow_size"-->
-            <!--android:layout_height="@dimen/iv_arrow_size"-->
-            <!--android:layout_below="@+id/tvMonday"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:src="@drawable/arrow" />-->
-
-
-    <!--</RelativeLayout>-->
-
     <RelativeLayout
+        android:onClick="finish"
         android:id="@+id/rlMonday"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -61,6 +20,7 @@
         android:elevation="1dp">
 
         <Button
+            android:onClick="finish"
             android:id="@+id/btnMonday"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -79,6 +39,15 @@
             android:background="@drawable/mondaysmile"
             android:elevation="1dp" />
 
+        <ImageView
+            android:onClick="finish"
+            android:id="@+id/ivArrow"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/arrow"
+            android:layout_width="@dimen/iv_arrow_size"
+            android:layout_height="@dimen/iv_arrow_size" />
+
     </RelativeLayout>
 
     //=========================================================================
@@ -86,10 +55,10 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tv_1"
@@ -149,9 +118,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:orientation="horizontal">
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tv_2"
@@ -211,9 +180,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:orientation="horizontal">
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tv_3"
@@ -272,10 +241,10 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tv_4"
@@ -334,10 +303,10 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tv_5"
@@ -396,10 +365,10 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tv_6"
@@ -458,10 +427,10 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <TextView
             android:id="@+id/tv_7"

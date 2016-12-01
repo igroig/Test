@@ -15,6 +15,7 @@
 
 
     <RelativeLayout
+        android:onClick="finish"
         android:id="@+id/rlWednesday"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -22,6 +23,7 @@
         android:elevation="1dp">
 
         <Button
+            android:onClick="finish"
             android:id="@+id/btnWednesday"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -39,6 +41,15 @@
             android:layout_marginLeft="@dimen/iv_smile_marginLeft"
             android:background="@drawable/wednesdaysmile"
             android:elevation="1dp" />
+
+        <ImageView
+            android:onClick="finish"
+            android:id="@+id/ivArrow"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/arrow"
+            android:layout_width="@dimen/iv_arrow_size"
+            android:layout_height="@dimen/iv_arrow_size" />
 
     </RelativeLayout>
 

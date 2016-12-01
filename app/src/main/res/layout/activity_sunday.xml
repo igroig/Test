@@ -15,6 +15,7 @@
 
 
     <RelativeLayout
+        android:onClick="finish"
         android:id="@+id/rlSunday"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -23,6 +24,7 @@
 
 
         <Button
+            android:onClick="finish"
             android:id="@+id/btnSunday"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,6 +44,15 @@
             android:layout_marginStart="30dp"
             android:background="@drawable/sundaysmile"
             android:elevation="1dp" />
+
+        <ImageView
+            android:onClick="finish"
+            android:id="@+id/ivArrow"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/arrow"
+            android:layout_width="@dimen/iv_arrow_size"
+            android:layout_height="@dimen/iv_arrow_size" />
 
 
     </RelativeLayout>

@@ -1,26 +1,15 @@
 package com.example.gio.lessnote.activities;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.ContextThemeWrapper;
-import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.gio.lessnote.LanguagesFragment;
 import com.example.gio.lessnote.R;
@@ -356,7 +345,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivityForResult(i, TUESTDAY_REQUEST);
         }
 // else {
-//            Intent i = new Intent(MainActivity.this, MondayActivity.class);
+//            Intent i = new Intent(MainActivity.this, TuesdatActivity.class);
 //            startActivityForResult(i, MONDEY_REQUEST);
 //        }
 

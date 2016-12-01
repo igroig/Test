@@ -9,12 +9,21 @@ import android.widget.TextView;
 
 public class Connections {
 
-    public static void setTvTime(TextView textView, int hours, int minutes){
-        if(hours < 12){
-            textView.setText(Integer.toString(hours)  + ":" + Integer.toString(minutes) + " AM");
-        }
-        else {
-            textView.setText(Integer.toString(hours - 12)  + ":" + Integer.toString(minutes) + " PM");
+    public static void setTvTime(TextView textView, int hours, int minutes) {
+        if (hours < 12) {
+            if (minutes < 10) {
+                textView.setText(Integer.toString(hours) + ":" + "0" + Integer.toString(minutes) + " AM");
+
+            } else {
+                textView.setText(Integer.toString(hours) + ":" + Integer.toString(minutes) + " AM");
+            }
+        } else {
+            if (minutes < 10) {
+                textView.setText(Integer.toString(hours) + ":" + "0" + Integer.toString(minutes) + " AM");
+
+            } else {
+                textView.setText(Integer.toString(hours - 12) + ":" + Integer.toString(minutes) + " PM");
+            }
         }
     }
 
