@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.gio.lessnote.LanguagesFragment;
 import com.example.gio.lessnote.R;
 import com.example.gio.lessnote.application.LessNoteApplication;
 import com.example.gio.lessnote.helpers.MyConstants;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, Animation.AnimationListener {
 
@@ -60,8 +63,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Animation fadeIn;
 
     Animation fadeOutIternal; //        ????????????????????????????????????????????????????????????????????????????????
+    Animation fadeInIternal; //        ????????????????????????????????????????????????????????????????????????????????
 
     LanguagesFragment fragment;
+    View flAlpha;
+
+    String[] daysEngTexts;
+    String[] daysRusTexts;
+    String[] daysGeoTexts;
+    Button[] btnDays;
 
 
     @Override
@@ -77,23 +87,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void checkAppFirstStart() {
 
-        if (LessNoteApplication.getInstce().getSharedBoolean(MyConstants.NOT_FIRST_START)==false) {
+        if (LessNoteApplication.getInstce().getSharedBoolean(MyConstants.NOT_FIRST_START) == false) {
             showFragment();
             LessNoteApplication.getInstce().setSharedBoolean(MyConstants.NOT_FIRST_START, true);
         }
     }
 
     private void showFragment() {
+        flAlpha.setVisibility(View.VISIBLE);
+        flAlpha.startAnimation(fadeInIternal);
         fragment = new LanguagesFragment();
-        getSupportFragmentManager().beginTransaction().addToBackStack(null).setCustomAnimations(R.anim.slide_up_dialog,0, 0, R.anim.slide_down_dialog)
+        getSupportFragmentManager().beginTransaction().addToBackStack(null).setCustomAnimations(R.anim.slide_up_dialog, 0, 0, R.anim.slide_down_dialog)
                 .replace(R.id.fLanguages, fragment).commit();
-        activity_main.setAnimation(fadeOutIternal);
 
     }
 
     //=========================================================================
 
     private void initView() {
+        flAlpha = findViewById(R.id.flAlpha);
+
         btnMonday = (Button) findViewById(R.id.btnMonday);
         ivMonday = (ImageView) findViewById(R.id.ivMonday);
         rlMonday = (RelativeLayout) findViewById(R.id.rlMonday);
@@ -121,7 +134,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fadeIn = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in);
 
         fadeOutIternal = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_out_iternal);  //  ????????????????????????????????????
+        fadeInIternal = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in_iternal);  //  ????????????????????????????????????
 
+        fillArrays();
 
         btnMonday.setOnClickListener(this);
         btnTuesday.setOnClickListener(this);
@@ -130,9 +145,100 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnFriday.setOnClickListener(this);
         btnSaturday.setOnClickListener(this);
         btnSunday.setOnClickListener(this);
+
+        //=========  smiles appareance
+
+        Calendar cal = Calendar.getInstance();
+        int dayOfMonth = cal.get(Calendar.DAY_OF_WEEK);
+        switch (dayOfMonth) {
+            case MyConstants.MONDAY:
+                ivMonday.setVisibility(View.VISIBLE);
+                break;
+            case MyConstants.TUESDAY:
+                ivTuesday.setVisibility(View.VISIBLE);
+                break;
+            case MyConstants.WEDNESDAY:
+                ivWednesday.setVisibility(View.VISIBLE);
+                break;
+            case MyConstants.THURSDAY:
+                ivThursday.setVisibility(View.VISIBLE);
+                break;
+            case MyConstants.FRIDAY:
+                ivFriday.setVisibility(View.VISIBLE);
+                break;
+            case MyConstants.SATURDAY:
+                ivSaturday.setVisibility(View.VISIBLE);
+                break;
+            case MyConstants.SUNDAY:
+                ivSunday.setVisibility(View.VISIBLE);
+                break;
+        }
+
+        //=========  smiles appareance
+
+        // ======  languageDays
+
+        String languageCHosen = LessNoteApplication.getInstce().getSharedString(MyConstants.LANGUGE_CHOSEN);
+
+        if (languageCHosen.equals("") || languageCHosen.equals(MyConstants.LAN_GEORGIA)) {
+                fillButtonTexts(daysGeoTexts);
+        } else if (languageCHosen.equals(MyConstants.LAN_ENGLISH)) {
+            fillButtonTexts(daysEngTexts);
+
+        } else {
+            fillButtonTexts(daysRusTexts);
+
+        }
+
+        // ======  languageDays
     }
 
+
+    public void fillArrays() {
+        daysEngTexts = new String[7];
+        daysEngTexts[0] = "Monday";
+        daysEngTexts[1] = "Tuesday";
+        daysEngTexts[2] = "Wednesday";
+        daysEngTexts[3] = "Thursday";
+        daysEngTexts[4] = "Friday";
+        daysEngTexts[5] = "Saturday";
+        daysEngTexts[6] = "Sunday";
+        daysRusTexts = new String[7];
+        daysRusTexts[0] = "Понедельник";
+        daysRusTexts[1] = "Вторник";
+        daysRusTexts[2] = "Среда";
+        daysRusTexts[3] = "Четверг";
+        daysRusTexts[4] = "Пятница";
+        daysRusTexts[5] = "Суббота";
+        daysRusTexts[6] = "Воскресенье";
+        daysGeoTexts = new String[7];
+        daysGeoTexts[0] = "ორშაბათი";
+        daysGeoTexts[1] = "სამშაბათი";
+        daysGeoTexts[2] = "ოთხშაბათი";
+        daysGeoTexts[3] = "ხუთშაბათი";
+        daysGeoTexts[4] = "პარასკევი";
+        daysGeoTexts[5] = "შაბათი";
+        daysGeoTexts[6] = "კვირა";
+        btnDays = new Button[7];
+        btnDays[0] = btnMonday;
+        btnDays[1] = btnTuesday;
+        btnDays[2] = btnWednesday;
+        btnDays[3] = btnThursday;
+        btnDays[4] = btnFriday;
+        btnDays[5] = btnSaturday;
+        btnDays[6] = btnSunday;
+    }
     //=========================================================================
+
+    @Override
+    public void onBackPressed() {
+        if (flAlpha.getVisibility() == View.VISIBLE) {
+            flAlpha.startAnimation(fadeOutIternal);
+            fadeOutIternal.setAnimationListener(this);
+        }
+        super.onBackPressed();
+    }
+
 
     //=========================================================================
 
@@ -318,6 +424,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onAnimationEnd(Animation animation) {
 
         // formatt need
+        if (animation.equals(fadeOutIternal)) {
+            flAlpha.setVisibility(View.GONE);
+        }
 
         if (animation.equals(slide_up7)) {
             Intent i = new Intent(MainActivity.this, SundayActivity.class);
@@ -358,9 +467,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //=========================================================================
 
-    public void chooseLanguage(View view){
+    //=========================================================================
+
+    public void fillButtonTexts(String [] days){
+        for(int i =0; i< days.length; i ++){
+            btnDays[i].setText(days[i]);
+        }
+    }
+
+    //=========================================================================
+
+    public void chooseLanguage(View view) {
         showFragment();
     }
+
+    public void languageClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btnGeo:
+                fragment.languageClicked(MyConstants.LAN_GEORGIA);
+                break;
+            case R.id.btnRus:
+                fragment.languageClicked(MyConstants.LAN_RUSSIAN);
+                break;
+            case R.id.btnEng:
+                fragment.languageClicked(MyConstants.LAN_ENGLISH);
+                break;
+        }
+    }
+
 
 
 }

@@ -6,6 +6,7 @@
     <color name="white">#ffffff</color>
     
     <color name="colorBcg">#A52007</color>
+    <color name="colorBcgLan">#78a52007</color>
 
     <color name="colorMonday">#E63C51</color>
     <color name="colorTuesday">#FEC644</color>

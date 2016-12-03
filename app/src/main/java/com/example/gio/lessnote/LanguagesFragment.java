@@ -10,28 +10,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.gio.lessnote.application.LessNoteApplication;
+import com.example.gio.lessnote.helpers.Connections;
+import com.example.gio.lessnote.helpers.MyConstants;
+
 
 public class LanguagesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-
 
          View view = inflater.inflate(R.layout.fragment_languages, container, false);
 
-        Button btnGeo = (Button)view.findViewById(R.id.btnGeo);
-        btnGeo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getActivity().getSupportFragmentManager().popBackStack();
-
-            }
-        });
-
         return view;
     }
+
+    public void languageClicked(String language){
+        LessNoteApplication.getInstce().setSharedString(MyConstants.LANGUGE_CHOSEN, language);
+        getActivity().onBackPressed();
+    }
+
 
 }

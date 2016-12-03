@@ -34,6 +34,7 @@
         android:textSize="@dimen/btn_days_text_size"></Button>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivMonday"
             android:layout_width="@dimen/iv_smile_size"
             android:layout_height="@dimen/iv_smile_size"
@@ -67,6 +68,7 @@
         android:textSize="@dimen/btn_days_text_size"></Button>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivTuesday"
             android:layout_width="@dimen/iv_smile_size"
             android:layout_height="@dimen/iv_smile_size"
@@ -100,6 +102,7 @@
         android:textSize="@dimen/btn_days_text_size"></Button>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivWednesday"
             android:layout_width="@dimen/iv_smile_size"
             android:layout_height="@dimen/iv_smile_size"
@@ -133,6 +136,7 @@
         android:textSize="@dimen/btn_days_text_size"></Button>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivThursday"
             android:layout_width="@dimen/iv_smile_size"
             android:layout_height="@dimen/iv_smile_size"
@@ -166,6 +170,7 @@
             android:textSize="@dimen/btn_days_text_size"></Button>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivFriday"
             android:layout_width="@dimen/iv_smile_size"
             android:layout_height="@dimen/iv_smile_size"
@@ -202,6 +207,7 @@
             android:layout_alignParentStart="true"></Button>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivSaturday"
             android:layout_width="@dimen/iv_smile_size"
             android:layout_height="@dimen/iv_smile_size"
@@ -231,6 +237,7 @@
             android:textSize="@dimen/btn_days_text_size"></Button>
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/ivSunday"
             android:layout_width="@dimen/iv_smile_size"
             android:layout_height="@dimen/iv_smile_size"
@@ -258,6 +265,13 @@
     //=========================================================================
 
 </LinearLayout>
+
+    <FrameLayout
+        android:visibility="gone"
+        android:background="@color/colorBcgLan"
+        android:id="@+id/flAlpha"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <FrameLayout
         android:id="@+id/fLanguages"
