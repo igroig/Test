@@ -80,6 +80,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:maxLength="25"
             android:id="@+id/et_les_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,6 +143,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:maxLength="25"
             android:id="@+id/et_les_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -204,6 +206,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:maxLength="25"
             android:id="@+id/et_les_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -266,6 +269,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:maxLength="25"
             android:id="@+id/et_les_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -328,6 +332,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:maxLength="25"
             android:id="@+id/et_les_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -390,6 +395,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:maxLength="25"
             android:id="@+id/et_les_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -452,6 +458,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:maxLength="25"
             android:id="@+id/et_les_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

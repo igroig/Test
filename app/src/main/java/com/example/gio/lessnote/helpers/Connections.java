@@ -3,6 +3,9 @@ package com.example.gio.lessnote.helpers;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.gio.lessnote.R;
+import com.example.gio.lessnote.application.LessNoteApplication;
+
 /**
  * Created by Gio on 10/18/2016.
  */
@@ -27,4 +30,20 @@ public class Connections {
         }
     }
 
+    public static void fillLessonHints(EditText [] editTexts){
+        String hint ;
+        String languageCHosen = LessNoteApplication.getInstce().getSharedString(MyConstants.LANGUGE_CHOSEN);
+
+        if (languageCHosen.equals("") || languageCHosen.equals(MyConstants.LAN_GEORGIA)) {
+            hint = MyConstants.GEO_LESS_HINT;
+        } else if (languageCHosen.equals(MyConstants.LAN_ENGLISH)) {
+            hint = MyConstants.ENG_LESS_HINT;
+        } else {
+            hint = MyConstants.RUS_LESS_HINT;
+        }
+
+        for (int i = 0; i < editTexts.length ; i ++) {
+            editTexts[i].setHint(hint);
+        }
+    }
 }

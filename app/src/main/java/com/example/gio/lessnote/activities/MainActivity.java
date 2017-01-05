@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout rlSunday;
     private LinearLayout activity_main;
 
+    private Button btnChooseLn;
+
     Animation slide_up2;
     Animation slide_up3;
     Animation slide_up4;
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     LanguagesFragment fragment;
     View flAlpha;
+    View flBlur;
 
     String[] daysEngTexts;
     String[] daysRusTexts;
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showFragment() {
+        setCLickabkeButtonsFalse();
         flAlpha.setVisibility(View.VISIBLE);
         flAlpha.startAnimation(fadeInIternal);
         fragment = new LanguagesFragment();
@@ -105,7 +111,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //=========================================================================
 
     private void initView() {
+        flBlur = findViewById(R.id.flBlur);
         flAlpha = findViewById(R.id.flAlpha);
+        btnChooseLn = (Button)findViewById(R.id.btnChooseLn);
 
         btnMonday = (Button) findViewById(R.id.btnMonday);
         ivMonday = (ImageView) findViewById(R.id.ivMonday);
@@ -130,10 +138,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rlSunday = (RelativeLayout) findViewById(R.id.rlSunday);
         activity_main = (LinearLayout) findViewById(R.id.activity_main);
 
-        fadeOut = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_out);
+//        fadeOut = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_out);
+
+        fadeOut = new AlphaAnimation(1, 0);
+        fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
+        fadeOut.setStartOffset(200);
+        fadeOut.setDuration(1000);
+
         fadeIn = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in);
+        //========================================================================= blur
+        fadeIn.setAnimationListener(this);
+        //========================================================================= blur
 
         fadeOutIternal = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_out_iternal);  //  ????????????????????????????????????
+        fadeOutIternal.setAnimationListener(this);
         fadeInIternal = AnimationUtils.loadAnimation(MainActivity.this, R.anim.fade_in_iternal);  //  ????????????????????????????????????
 
         fillArrays();
@@ -182,11 +200,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (languageCHosen.equals("") || languageCHosen.equals(MyConstants.LAN_GEORGIA)) {
                 fillButtonTexts(daysGeoTexts);
+            btnChooseLn.setBackgroundResource(R.drawable.geolan);
         } else if (languageCHosen.equals(MyConstants.LAN_ENGLISH)) {
             fillButtonTexts(daysEngTexts);
+            btnChooseLn.setBackgroundResource(R.drawable.englan);
 
         } else {
             fillButtonTexts(daysRusTexts);
+            btnChooseLn.setBackgroundResource(R.drawable.ruslan);
 
         }
 
@@ -234,7 +255,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onBackPressed() {
         if (flAlpha.getVisibility() == View.VISIBLE) {
             flAlpha.startAnimation(fadeOutIternal);
-            fadeOutIternal.setAnimationListener(this);
         }
         super.onBackPressed();
     }
@@ -255,6 +275,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 slide_up2 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_up2);
                 slide_up2.setAnimationListener(this);
 
+                //========================================================================= blur
+                flBlur.setVisibility(View.VISIBLE);
+                flBlur.setBackgroundColor(getResources().getColor(R.color.colorTuesdayBlur));
+                //========================================================================= blur
+
                 rlSunday.startAnimation(fadeOut);
                 rlSaturday.startAnimation(fadeOut);
                 rlFriday.startAnimation(fadeOut);
@@ -268,6 +293,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnWednesday:
                 slide_up3 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_up3);
                 slide_up3.setAnimationListener(this);
+
+                //========================================================================= blur
+                flBlur.setVisibility(View.VISIBLE);
+                flBlur.setBackgroundColor(getResources().getColor(R.color.colorWednesdayBlur));
+                //========================================================================= blur
 
                 rlSunday.startAnimation(fadeOut);
                 rlSaturday.startAnimation(fadeOut);
@@ -283,6 +313,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 slide_up4 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_up4);
                 slide_up4.setAnimationListener(this);
 
+                //========================================================================= blur
+                flBlur.setVisibility(View.VISIBLE);
+                flBlur.setBackgroundColor(getResources().getColor(R.color.colorThursdayBlur));
+                //========================================================================= blur
+
                 rlSunday.startAnimation(fadeOut);
                 rlSaturday.startAnimation(fadeOut);
                 rlFriday.startAnimation(fadeOut);
@@ -296,6 +331,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnFriday:
                 slide_up5 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_up5);
                 slide_up5.setAnimationListener(this);
+
+                //========================================================================= blur
+                flBlur.setVisibility(View.VISIBLE);
+                flBlur.setBackgroundColor(getResources().getColor(R.color.colorFridayBlur));
+                //========================================================================= blur
 
                 rlSunday.startAnimation(fadeOut);
                 rlSaturday.startAnimation(fadeOut);
@@ -311,6 +351,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 slide_up6 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_up6);
                 slide_up6.setAnimationListener(this);
 
+                //========================================================================= blur
+                flBlur.setVisibility(View.VISIBLE);
+                flBlur.setBackgroundColor(getResources().getColor(R.color.colorSaturdaBlury));
+                //========================================================================= blur
+
                 rlSunday.startAnimation(fadeOut);
                 rlFriday.startAnimation(fadeOut);
                 rlThursday.startAnimation(fadeOut);
@@ -325,6 +370,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 slide_up7 = AnimationUtils.loadAnimation(MainActivity.this, R.anim.slide_up7);
                 slide_up7.setAnimationListener(this);
+
+                //========================================================================= blur
+                flBlur.setVisibility(View.VISIBLE);
+                flBlur.setBackgroundColor(getResources().getColor(R.color.colorSundayBlur));
+                //========================================================================= blur
 
                 rlSaturday.startAnimation(fadeOut);
                 rlFriday.startAnimation(fadeOut);
@@ -346,6 +396,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        flBlur.startAnimation(fadeOut);
+
         if (requestCode == SUNDAY_REQUEST) {
             rlSaturday.startAnimation(fadeIn);
             rlFriday.startAnimation(fadeIn);
@@ -409,6 +462,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
 
         }
+
     }
 
     //=========================================================================
@@ -426,7 +480,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // formatt need
         if (animation.equals(fadeOutIternal)) {
             flAlpha.setVisibility(View.GONE);
+            setCLickabkeButtonstrue();
         }
+
+        //=========================================================================blur
+        if (animation.equals(fadeIn)) {
+            flBlur.setVisibility(View.GONE);
+        }
+        //=========================================================================blur
 
         if (animation.equals(slide_up7)) {
             Intent i = new Intent(MainActivity.this, SundayActivity.class);
@@ -469,7 +530,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //=========================================================================
 
-    public void fillButtonTexts(String [] days){
+    public  void fillButtonTexts(String [] days){
         for(int i =0; i< days.length; i ++){
             btnDays[i].setText(days[i]);
         }
@@ -484,17 +545,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void languageClicked(View view) {
         switch (view.getId()) {
             case R.id.btnGeo:
+                fillButtonTexts(daysGeoTexts);
+                btnChooseLn.setBackgroundResource(R.drawable.geolan);
                 fragment.languageClicked(MyConstants.LAN_GEORGIA);
                 break;
             case R.id.btnRus:
+                fillButtonTexts(daysRusTexts);
+                btnChooseLn.setBackgroundResource(R.drawable.ruslan);
                 fragment.languageClicked(MyConstants.LAN_RUSSIAN);
                 break;
             case R.id.btnEng:
+                fillButtonTexts(daysEngTexts);
+                btnChooseLn.setBackgroundResource(R.drawable.englan);
                 fragment.languageClicked(MyConstants.LAN_ENGLISH);
                 break;
         }
     }
 
+    //=========================================================================
 
+    public void setCLickabkeButtonsFalse(){
+        for (int i = 0; i < btnDays.length; i++) {
+            btnDays[i].setClickable(false);
+        }
+    };
+    public void setCLickabkeButtonstrue(){
+        for (int i = 0; i < btnDays.length; i++) {
+            btnDays[i].setClickable(true);
+        }
+    };
 
 }

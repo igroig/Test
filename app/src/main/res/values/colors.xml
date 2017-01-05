@@ -16,4 +16,13 @@
     <color name="colorSaturday">#9B78EC</color>
     <color name="colorSunday">#E771B3</color>
 
+
+    <color name="colorMondayBlur">#55e63c51</color>
+    <color name="colorTuesdayBlur">#55fec644</color>
+    <color name="colorWednesdayBlur">#553fc59e</color>
+    <color name="colorThursdayBlur">#5543b3e2</color>
+    <color name="colorFridayBlur">#554c87e7</color>
+    <color name="colorSaturdaBlury">#559b78ec</color>
+    <color name="colorSundayBlur">#55e771b3</color>
+
 </resources>

@@ -255,7 +255,7 @@
             android:layout_marginRight= "@dimen/activity_horizontal_margin"
             android:layout_alignParentRight="true"
             android:id="@+id/btnChooseLn"
-            android:background="@drawable/englan"
+            android:background="@drawable/geolan"
             android:layout_width="@dimen/btn_chooseLn_width"
             android:layout_height="@dimen/btn_chooseLn_height" />
 
@@ -279,4 +279,13 @@
         android:layout_height="match_parent">
 
     </FrameLayout>
+
+    //========================================================================= blur
+    <FrameLayout
+        android:visibility="gone"
+        android:background="@color/colorBcgLan"
+        android:id="@+id/flBlur"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+//========================================================================= blur
 </FrameLayout>

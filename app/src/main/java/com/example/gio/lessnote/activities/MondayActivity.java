@@ -83,6 +83,8 @@ public class MondayActivity extends AppCompatActivity {
     private EditText et_les_6;
     private EditText et_les_7;
 
+    private EditText [] edittexts = new EditText[7];
+
 //=========================================================================
 
     @Override
@@ -90,6 +92,7 @@ public class MondayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monday);
         initView();
+        Connections.fillLessonHints(edittexts);
 
         hours[0] = hours1;
         hours[1] = hours2;
@@ -176,6 +179,14 @@ public class MondayActivity extends AppCompatActivity {
         et_les_6.setText(LessNoteApplication.getInstce().getSharedString(MON_LESS_6));
         et_les_7 = (EditText) findViewById(R.id.et_les_7);
         et_les_7.setText(LessNoteApplication.getInstce().getSharedString(MON_LESS_7));
+
+        edittexts [0] = et_les_1;
+        edittexts [1] = et_les_2;
+        edittexts [2] = et_les_3;
+        edittexts [3] = et_les_4;
+        edittexts [4] = et_les_5;
+        edittexts [5] = et_les_6;
+        edittexts [6] = et_les_7;
     }
 
     @Override
@@ -359,6 +370,12 @@ public class MondayActivity extends AppCompatActivity {
     public void finish(View v){
         onBackPressed();
     }
+
+    //=========================================================================
+
+    //=========================================================================
+
+
 
     //=========================================================================
 
