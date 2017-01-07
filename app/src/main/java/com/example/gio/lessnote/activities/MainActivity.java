@@ -488,6 +488,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             flBlur.setVisibility(View.GONE);
 
             // jimiko
+            // koo
         }
         //=========================================================================blur
 
