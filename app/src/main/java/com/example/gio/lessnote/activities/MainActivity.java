@@ -486,6 +486,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //=========================================================================blur
         if (animation.equals(fadeIn)) {
             flBlur.setVisibility(View.GONE);
+
+            // jimiko
         }
         //=========================================================================blur
 
